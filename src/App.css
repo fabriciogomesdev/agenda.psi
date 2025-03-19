@@ -1,106 +1,147 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  padding: 0;
   text-align: center;
+  
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.75rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+  /*Calendário*/
+  
+  --calendar-background: 360 100% 100%; /* #f5f5f5 */
+  --text-color: 0 0% 20%; /* #333333 */
+  --bordercolor: 0 0% 16%; /* #dddddd */
+  --toolbar-background: 0 0% 96.1%; /* #f5f5f5 */
+  --toolbar-text-color: 0 0% 20%; /* #333333 */
+  --modal-background: 0 0% 100% / 0.9; /* rgba(255, 255, 255, 0.9) */
+  --modal-content-background: 0 0% 100%; /* #ffffff */
+  --today-background: 0 0% 87.8%; /* #e0e0e0 */
+  --event-background: 3 85.6% 62.9%; /* #f15550 */
+  --event-text-color: 0 0% 100%; /* #ffffff */
+  
+  /*Ajustes que fiz*/
+
+  --radius: 0.5rem;
+
+    /* Cores de fundo e texto */
+  --background: 96 24% 90%;        /* #e7ffd6 */
+  --foreground: 96 24% 20%;        /* #4e7842 */
+  --calendar: 0 0% 100%;        /* #4e7842 */
+
+  /* Card */
+  --card: 96 24% 85%;              /* #c1ddb1 */
+  --card-foreground: 96 24% 20%;   /* #4e7842 */
+
+  /* Popover */
+  --popover: 96 24% 85%;           /* #c1ddb1 */
+  --popover-foreground: 96 24% 20%; /* #4e7842 */
+
+  /* Primária */
+  --primary: 96 24% 40%;           /* #749a67 */
+  --primary-foreground: 115 5% 97%; /* #e7ffd6 */
+
+  /* Secundária */
+  --secondary: 96 24% 60%;         /* #9abc8c */
+  --secondary-foreground: 96 24% 20%; /* #4e7842 */
+
+  /* Muted */
+  --muted: 96 24% 75%;             /* #c1ddb1 */
+  --muted-foreground: 96 24% 40%;  /*rgba(22, 21, 21, 0.69) */
+
+  /* Accent */
+  --accent: 96 24% 50%;            /* #9abc8c */
+  --accent-foreground: 96 24% 90%; /* #e7ffd6 */
+
+  /* Destrutiva */
+  --destructive: 0 62.8% 30.6%;    /* Mantido do tema original */
+  --destructive-foreground: 0 85.7% 97.3%; /* Mantido do tema original */
+
+  /* Bordas e Inputs */
+  --border: 96 24% 60%;            /* #9abc8c */
+  --input: 96 24% 60%;             /* #9abc8c */
+
+  /* Anéis (focus, etc.) */
+  --ring: 96 24% 40%;              /* #749a67 */
+
+  /* Cores para gráficos */
+  --chart-1: 220 70% 50%;          /* Mantido do tema original */
+  --chart-2: 160 60% 45%;          /* Mantido do tema original */
+  --chart-3: 30 80% 55%;           /* Mantido do tema original */
+  --chart-4: 280 65% 60%;          /* Mantido do tema original */
+  --chart-5: 340 75% 55%;          /* Mantido do tema original */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /*Calendário*/
+    --background: 0 0% 14.9%; /* #262626 */
+    --calendar-background: 0 0% 10.2%; /* #1a1a1a */
+    --text-color: 0 0% 93.3%; /* #eeeeee */
+    --bordercolor: 0 0% 69%; /* #dddddd73 */
+    --toolbar-background: 0 0% 10.2%; /* #1a1a1a */
+    --toolbar-text-color: 0 0% 80.8%; /* #cecece */
+    --modal-background: 0 0% 0% / 0.578; /* rgba(0, 0, 0, 0.578) */
+    --modal-content-background: 0 0% 10.2%; /* #1a1a1a */
+    --today-background: 0 0% 10.2%; /* #1a1a1a */
+    --event-background: 3 85.6% 62.9%; /* #f15550 */
+    --event-text-color: 0 0% 100%; /* #ffffff */
+    /* Cores de fundo e texto */
+    --background: 240 10% 10%; /* Preto azulado escuro */
+    --foreground: 0 0% 90%; /* Branco acinzentado */
+    --calendar: 240 10% 20%; /* Cinza escuro */
+  
+    /* Card */
+    --card: 240 10% 15%; /* Um tom mais escuro que o background */
+    --card-foreground: 0 0% 90%; /* Branco acinzentado */
+  
+    /* Popover */
+    --popover: 240 10% 15%; /* Mesmo tom do card */
+    --popover-foreground: 0 0% 90%; /* Branco acinzentado */
+  
+    /* Primária */
+    --primary: 210 70% 50%; /* Azul vibrante */
+    --primary-foreground: 0 0% 90%; /* Branco acinzentado */
+  
+    /* Secundária */
+    --secondary: 240 10% 20%; /* Cinza escuro */
+    --secondary-foreground: 0 0% 90%; /* Branco acinzentado */
+  
+    /* Muted */
+    --muted: 240 10% 20%; /* Cinza escuro */
+    --muted-foreground: 0 0% 60%; /* Cinza claro */
+  
+    /* Accent */
+    --accent: 210 70% 50%; /* Azul vibrante */
+    --accent-foreground: 0 0% 90%; /* Branco acinzentado */
+  
+    /* Destrutiva */
+    --destructive: 0 70% 50%; /* Vermelho vibrante */
+    --destructive-foreground: 0 85.7% 97.3%; /* Branco */
+  
+    /* Bordas e Inputs */
+    --border: 0 0% 69%; /* Cinza escuro */
+    --input: 240 10% 20%; /* Cinza escuro */
+  
+    /* Anéis (focus, etc.) */
+    --ring: 210 70% 50%; /* Azul vibrante */
+  
+    /* Cores para gráficos */
+    --chart-1: 0 70% 50%; /* Vermelho vibrante */
+    --chart-2: 120 70% 50%; /* Verde vibrante */
+    --chart-3: 60 70% 50%; /* Amarelo vibrante */
+    --chart-4: 270 70% 50%; /* Roxo vibrante */
+    --chart-5: 30 70% 50%; /* Laranja vibrante */
   }
 }
+
 
 
 @layer base {
@@ -111,3 +152,6 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+

@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import './App.css'
 
 import { router } from './routes'
+import { ThemeProvider } from './components/theme/theme-provider'
 
 
 export function App() {
@@ -11,9 +12,11 @@ export function App() {
 
   return (
     <HelmetProvider>
-      <Helmet titleTemplate='%s | pizza.shop'/>
+      <ThemeProvider storageKey='agenda.psi-theme' defaultTheme='light'>
+      <Helmet titleTemplate='%s | agenda.psi'/>
       <Toaster richColors/>
       <RouterProvider router={router} />
+      </ThemeProvider>
     </HelmetProvider>
   )
 }
