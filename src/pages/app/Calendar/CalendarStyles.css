@@ -149,3 +149,8 @@
     font-weight: bold;
     color: var(--text-color);
   }
+
+  .rbc-row-bg{
+    background-color: white;
+    
+  }
